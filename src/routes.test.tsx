@@ -8,7 +8,7 @@ const context = describe;
 
 describe('routes', () => {
   function renderRouter(path: string) {
-    const router = createMemoryRouter(routes, { initialEntries: [ path ] });
+    const router = createMemoryRouter(routes, { initialEntries: [path] });
     render(<RouterProvider router={router} />);
   }
 

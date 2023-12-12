@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   html {
+    font-size: 62.5%;
     box-sizing: border-box;
   }
 
@@ -11,14 +12,21 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  html {
-    font-size: 62.5%;
-  }
-
   body {
     font-size: 1.6rem;
     background: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.text}
+    color: ${(props) => props.theme.colors.text};
+  }
+
+  a {
+    color: ${(props) => props.theme.colors.text};
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 1em;
   }
 
   :lang(ko) {
