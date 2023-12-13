@@ -7,6 +7,7 @@ import { Reset } from 'styled-reset';
 import routes from './routes';
 
 import GlobalStyle from './styles/GlobalStyle';
+
 import DefaultTheme from './styles/defaultTheme';
 
 const router = createBrowserRouter(routes);

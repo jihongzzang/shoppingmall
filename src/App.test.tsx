@@ -5,5 +5,5 @@ import App from './App';
 test('App', () => {
   render(<App />);
 
-  screen.getByText(/Hello, world/);
+  screen.getByText(/Shop/);
 });
