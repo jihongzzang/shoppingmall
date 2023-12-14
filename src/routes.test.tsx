@@ -1,26 +1,36 @@
 import { screen, waitFor } from '@testing-library/react';
 
-import { render } from './utils/test-helpers';
+import { renderRouter } from './utils/test-helpers';
 
-import { HomePage, ProductDetailPage, ProductListPage } from './pages';
 import fixtures from '../fixtures';
+
 import PATHNAME from './constants/pathname';
+
+const [product] = fixtures.products;
+
+const [categories] = fixtures.categories;
 
 const context = describe;
 
 describe('routes', () => {
   context(`when the current path is '${PATHNAME.HOME}'`, () => {
-    it('renders the home page', () => {
-      render(<HomePage />);
+    it('renders the home page', async () => {
+      renderRouter(PATHNAME.HOME);
 
-      screen.getByText(/Home page/);
+      screen.getByText(/Products/);
+
+      await waitFor(() => {
+        screen.getByText(/Category #1/);
+        screen.getByText(/Category #2/);
+        screen.getByText(/Cart/);
+      });
     });
   });
 
   context(`when the current path is '${PATHNAME.PRODUCTS}'`, () => {
     context('without category ID', () => {
       it('renders the product list page', async () => {
-        render(<ProductListPage />, { path: PATHNAME.PRODUCTS });
+        renderRouter(PATHNAME.PRODUCTS);
 
         await waitFor(() => {
           screen.getByText(/Product #1/);
@@ -30,9 +40,7 @@ describe('routes', () => {
 
     context('with category ID', () => {
       it('renders the product list page', async () => {
-        render(<ProductListPage />, {
-          path: `${PATHNAME.PRODUCTS}?categoryId=${fixtures.categories[0].id}`,
-        });
+        renderRouter(`${PATHNAME.PRODUCTS}?categoryId=${categories.id}`);
 
         await waitFor(() => {
           screen.getByText(/Product #1/);
@@ -41,12 +49,10 @@ describe('routes', () => {
     });
   });
 
-  context("when the current path is '/products/{id}'", () => {
+  context(`when the current path is '${PATHNAME.PRODUCTS}/:id'`, () => {
     context('with correct ID', () => {
       it('renders the product detail page', async () => {
-        render(<ProductDetailPage />, {
-          path: `${PATHNAME.PRODUCTS}/product-01`,
-        });
+        renderRouter(`${PATHNAME.PRODUCTS}/${product.id}`);
 
         screen.getByText(/Loading/);
 
@@ -58,12 +64,22 @@ describe('routes', () => {
 
     context('with incorrect ID', () => {
       it('renders "not found" message', async () => {
-        render(<ProductDetailPage />, {
-          path: `${PATHNAME.PRODUCTS}/xxx`,
-        });
+        renderRouter(`${PATHNAME.PRODUCTS}/xxx`);
 
         await waitFor(() => {
           screen.getByText(/Error/);
+        });
+      });
+    });
+  });
+
+  context(`when the current path is '${PATHNAME.CART}`, () => {
+    context('', () => {
+      it('renders the cart page', async () => {
+        renderRouter(`${PATHNAME.CART}`);
+
+        await waitFor(() => {
+          screen.getByText(/장바구니/);
         });
       });
     });

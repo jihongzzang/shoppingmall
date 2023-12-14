@@ -6,7 +6,7 @@ import { render } from '../../utils/test-helpers';
 
 import { ProductDetailStore } from '../../stores';
 
-import ProductDetail from './ProductDetail';
+import ProductDetail from '.';
 
 import fixtures from '../../../fixtures';
 

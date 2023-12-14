@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { numberFormat } from '../../utils';
-
 import { ProductSummary } from '../../types';
+
+import { numberFormat } from '../../utils';
 
 const Continer = styled.div`
   word-break: keep-all;

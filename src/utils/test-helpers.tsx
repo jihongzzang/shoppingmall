@@ -5,25 +5,39 @@ import { render as originalRender } from '@testing-library/react';
 
 import React from 'react';
 
-import { MemoryRouter } from 'react-router-dom';
+import {
+  MemoryRouter,
+  RouterProvider,
+  createMemoryRouter,
+} from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
 
 import defaultTheme from '../styles/defaultTheme';
 
+import routes from '../routes';
+
 type Option = {
   path?: string;
-}
+};
 
 export function render(
   element: React.ReactElement,
   { path = '/' }: Option = {},
 ) {
-  return originalRender((
+  return originalRender(
     <MemoryRouter initialEntries={[path]}>
-      <ThemeProvider theme={defaultTheme}>
-        {element}
-      </ThemeProvider>
-    </MemoryRouter>
-  ));
+      <ThemeProvider theme={defaultTheme}>{element}</ThemeProvider>
+    </MemoryRouter>,
+  );
+}
+
+export function renderRouter(path: string) {
+  const router = createMemoryRouter(routes, { initialEntries: [path] });
+
+  return originalRender(
+    <ThemeProvider theme={defaultTheme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>,
+  );
 }

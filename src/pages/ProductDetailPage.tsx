@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import ProductDetail from '../components/product-detail/ProductDetail';
+import ProductDetail from '../components/product-detail';
 
 import useFetchProduct from '../hooks/useFetchProduct';
 

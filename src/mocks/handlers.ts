@@ -15,8 +15,6 @@ const productSummaries: ProductSummary[] = fixtures.products.map((product) => ({
   price: product.price,
 }));
 
-console.log(`${BASE_URL}/categories`);
-
 const handlers = [
   rest.get(`${BASE_URL}/categories`, (req, res, ctx) => res(ctx.json({ categories: fixtures.categories }))),
   rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(ctx.json({ products: productSummaries }))),

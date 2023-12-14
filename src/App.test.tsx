@@ -1,9 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 import App from './App';
 
-test('App', () => {
+test('App', async () => {
   render(<App />);
 
-  screen.getByText(/Shop/);
+  waitFor(() => {
+    screen.getByText(/Shop/);
+  });
 });

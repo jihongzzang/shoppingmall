@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 
-import Products from '../components/product-list/Products';
+import Products from '../components/product-list';
 
 import useFetchProducts from '../hooks/useFetchProducts';
 

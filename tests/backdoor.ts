@@ -1,11 +1,10 @@
 const { I } = inject();
 
-const BACKDOOR_BASE_URL = process.env.BACKDOOR_BASE_URL
-                          || 'http://localhost:3000/backdoor';
+const BACKDOOR_BASE_URL = process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-01.fly.dev';
 
 export = {
   setupDatabase() {
-    I.amOnPage(`${BACKDOOR_BASE_URL}/setup-database`);
+    I.amOnPage(`${BACKDOOR_BASE_URL}/backdoor/setup-database`);
     I.see('OK');
   },
-}
+};

@@ -1,9 +1,7 @@
 Feature('Cart');
 
-Before(({ backdoor, I }) => {
+Before(({ backdoor }) => {
   backdoor.setupDatabase();
-
-  I.login();
 });
 
 Scenario('Empty cart', ({ I }) => {
@@ -26,6 +24,9 @@ Scenario('Add to cart', ({ I }) => {
 
   I.amOnPage('/cart');
 
-  I.see('CBCL 하트자수맨투맨\n(컬러: blue');
-  I.see('합계\t128,000원');
+  I.see('CBCL 하트자수맨투맨');
+  I.see('(컬러: blue');
+
+  I.see('합계');
+  I.see('128,000원');
 });

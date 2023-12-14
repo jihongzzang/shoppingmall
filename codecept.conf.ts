@@ -20,6 +20,7 @@ export const config = {
   },
   include: {
     I: './tests/steps_file',
+    backdoor: './tests/backdoor',
   },
   plugins: {
     retryFailedStep: {

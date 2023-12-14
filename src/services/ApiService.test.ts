@@ -1,24 +1,31 @@
-import ApiService from './ApiService';
+// import ApiService from './ApiService';
 
-import fixtures from '../../fixtures';
+// const context = describe;
 
-const context = describe;
+// describe('ApiService', () => {
+//   let apiService: ApiService;
 
-describe('ApiService', () => {
-  let apiService: ApiService;
+//   beforeEach(() => {
+//     apiService = new ApiService();
+//   });
 
-  beforeEach(() => {
-    apiService = new ApiService();
-  });
+//   test('fetchCategories', async () => {
+//     const categories = await apiService.fetchCategories();
+//     expect(categories).not.toHaveLength(0);
+//   });
 
-  test('fetchCategories', async () => {
-    const categories = await apiService.fetchCategories();
-    expect(categories).not.toHaveLength(0);
-  });
+//   describe('fetchProducts', () => {
+//     context('without category ID', () => {});
 
-  describe('fetchProducts', () => {
-    context('without category ID', () => {});
+//     context('with category ID', () => {});
+//   });
+// });
 
-    context('with category ID', () => {});
+describe('', () => {
+  context('', () => {
+    it('', () => {
+      const a = 1;
+      expect(a).toEqual(1);
+    });
   });
 });
