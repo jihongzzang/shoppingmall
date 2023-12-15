@@ -1,10 +1,9 @@
+import colors from './colors';
+import typography from './typography';
+
 const defaultTheme = {
-  colors: {
-    background: '#FFF',
-    text: '#000',
-    primary: '#42F',
-    secondary: '#888',
-  },
+  colors,
+  typography,
 };
 
 export default defaultTheme;

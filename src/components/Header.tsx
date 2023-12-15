@@ -2,26 +2,39 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-import Category from './Category';
+import { Typography } from './ui';
+
+import PATHNAME from '../constants/pathname';
 
 import useFetchCategories from '../hooks/useFetchCategories';
 
-const Container = styled.div`
-  margin-bottom: 2rem;
+import useSelectedCategory from '../hooks/useSelectedCategory';
 
-  h1 {
-    font-size: 4rem;
-  }
+import { categoryFormat } from '../utils';
+
+const navMainLinks = [
+  { title: '홈', pathName: PATHNAME.HOME },
+  { title: '전체', pathName: PATHNAME.PRODUCTS },
+  { title: '장바구니', pathName: PATHNAME.CART },
+];
+
+const Container = styled.div`
+  margin-bottom: 1.6rem;
 
   nav {
-    padding-block: 2rem;
+    display: flex;
+
+    flex-direction: column;
+
+    padding-block: 2.4rem;
 
     ul {
       display: flex;
+      column-gap: 2.4rem;
     }
 
     li {
-      margin-right: 2rem;
+      padding: 0.4rem;
     }
 
     .active {
@@ -30,34 +43,55 @@ const Container = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)<{ selected: boolean }>`
+  ${({ theme }) => theme.typography.body_01}
+
+  font-weight: ${({ selected }) => (selected ? 700 : 400)};
+
+  color: ${({ theme, selected }) =>
+    selected ? "theme.colors['gray-1000']" : theme.colors['gray-800']};
+`;
+
 export default function Header() {
   const { categories } = useFetchCategories();
 
+  const { selctedCategory } = useSelectedCategory();
+
   return (
     <Container>
-      <h1>Shop</h1>
+      <Typography as='h1' color='gray-1000' variant='heading_03'>
+        Shop
+      </Typography>
+
       <nav>
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-
-          {!!categories.length && (
-            <ul>
-              {categories.map((category) => (
-                <Category key={category.id} category={category} />
-              ))}
-            </ul>
-          )}
-
-          <li>
-            <Link to="/cart">Cart</Link>
-          </li>
+          {navMainLinks.map(({ title, pathName }) => (
+            <li key={title}>
+              <StyledLink to={pathName} selected={title === selctedCategory}>
+                {title}
+              </StyledLink>
+            </li>
+          ))}
         </ul>
+
+        {!!categories.length && (
+          <ul>
+            {categories.map(({ id }) => {
+              const title = categoryFormat(id);
+
+              return (
+                <li key={id}>
+                  <StyledLink
+                    to={`${PATHNAME.PRODUCTS}?categoryId=${id}`}
+                    selected={title === selctedCategory}
+                  >
+                    {title}
+                  </StyledLink>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </nav>
     </Container>
   );
