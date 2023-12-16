@@ -6,8 +6,21 @@ function makeKey(value: string, index: number): string {
 
 const Container = styled.div`
   li {
-    min-height: 1rem;
+    ${({ theme }) => theme.typography.body_03};
+    color: ${({ theme }) => theme.colors.gray10};
     line-height: 1.6;
+    margin-block: 0.8rem;
+  }
+
+  li:nth-of-type(3) {
+    width: 100%;
+    min-height: 1px;
+    margin-block: 2rem;
+    background: ${({ theme }) => theme.colors.gray5};
+  }
+
+  li:nth-of-type(3) ~ li {
+    margin-block: 0;
   }
 `;
 

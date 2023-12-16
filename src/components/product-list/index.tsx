@@ -1,30 +1,10 @@
-import { Link } from 'react-router-dom';
-
-import styled from 'styled-components';
+import { Grid, Link } from '../ui';
 
 import Product from './Product';
 
 import { ProductSummary } from '../../types';
 
 import PATHNAME from '../../constants/pathname';
-
-const Container = styled.div`
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  li {
-    width: 20%;
-    padding: 1rem;
-  }
-
-  a {
-    display: block;
-    text-decoration: none;
-    overflow: hidden;
-  }
-`;
 
 type ProductsProps = {
   products: ProductSummary[];
@@ -36,16 +16,22 @@ export default function Products({ products }: ProductsProps) {
   }
 
   return (
-    <Container>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <Link to={`${PATHNAME.PRODUCTS}/${product.id}`}>
-              <Product product={product} />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </Container>
+    <Grid
+      columns={{
+        xs: '2',
+        sm: '2',
+        md: '3',
+        lg: '4',
+        xl: '5',
+      }}
+      gap="4"
+      width="auto"
+    >
+      {products.map((product) => (
+        <Link to={`${PATHNAME.PRODUCTS}/${product.id}`} key={product.id}>
+          <Product product={product} />
+        </Link>
+      ))}
+    </Grid>
   );
 }

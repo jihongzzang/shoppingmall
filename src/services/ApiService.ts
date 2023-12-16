@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-import { Cart, Category, ProductDetail, ProductSummary } from '../types';
+import {
+  Cart, Category, ProductDetail, ProductSummary,
+} from '../types';
 
-const API_BASE_URL =
-  process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-01.fly.dev';
+const API_BASE_URL = process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-01.fly.dev';
 
 export default class ApiService {
   private instance = axios.create({

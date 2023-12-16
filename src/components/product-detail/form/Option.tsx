@@ -1,8 +1,8 @@
-import { ProductOption, ProductOptionItem } from '../../../types';
-
 import { ComboBox } from '../../ui';
 
 import { ChangeFunction } from './types';
+
+import { ProductOption, ProductOptionItem } from '../../../types';
 
 type OptionProps = {
   option: ProductOption;

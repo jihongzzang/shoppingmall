@@ -2,9 +2,11 @@ import { useRef } from 'react';
 
 import styled from 'styled-components';
 
+import { Select } from './Select';
+
 const Container = styled.div`
   label {
-    margin-right: 0.5rem;
+    margin-right: 2rem;
   }
 `;
 
@@ -27,8 +29,7 @@ export default function ComboBox<T>({
 }: ComboBoxProps<T>) {
   const id = useRef(`combobox-${Math.random().toString().slice(2)}`);
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
+  const handleChange = (value: string) => {
     const selected = items.find((item) => itemToId(item) === value);
     onChange(selected ?? null);
   };
@@ -36,17 +37,18 @@ export default function ComboBox<T>({
   return (
     <Container>
       <label htmlFor={id.current}>{label}</label>
-      <select
-        id={id.current}
-        onChange={handleChange}
-        value={itemToId(selectedItem)}
-      >
-        {items.map((item) => (
-          <option key={itemToId(item)} value={itemToId(item)}>
-            {itemToText(item)}
-          </option>
-        ))}
-      </select>
+      <Select.Root value={itemToId(selectedItem)} onValueChange={handleChange}>
+        <Select.Trigger />
+        <Select.Content position="popper">
+          <Select.Group id={id.current} defaultValue={itemToId(selectedItem)}>
+            {items.map((item) => (
+              <Select.Item key={itemToId(item)} value={itemToId(item)}>
+                {itemToText(item)}
+              </Select.Item>
+            ))}
+          </Select.Group>
+        </Select.Content>
+      </Select.Root>
     </Container>
   );
 }

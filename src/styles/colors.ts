@@ -1,3 +1,7 @@
+import {
+  gray, blue, red, green, blackA,
+} from '@radix-ui/colors';
+
 const colors = {
   background: '#FFF',
 
@@ -23,6 +27,11 @@ const colors = {
   'gray-1100': '#E6E8ED',
   'gray-1200': '#9DA2AC',
   'gray-1300': '#F0F0F6',
+  ...blackA,
+  ...gray,
+  ...blue,
+  ...red,
+  ...green,
 };
 
 export default colors;

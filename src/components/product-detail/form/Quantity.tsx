@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-import { Button } from '../../ui';
+import { Button, Flex, TextField } from '../../ui';
 
 import useProductFormStore from '../../../hooks/useProductFormStore';
 
-const Container = styled.div`
+const FlexContainer = styled(Flex)`
   input {
-    width: 5rem;
     text-align: center;
   }
 `;
@@ -23,10 +22,33 @@ export default function Quantity() {
   };
 
   return (
-    <Container>
-      <Button onClick={handleClickDecrease}>-</Button>
-      <input type="text" value={quantity} readOnly />
-      <Button onClick={handleClickIncrease}>+</Button>
-    </Container>
+    <FlexContainer gap="2">
+      <Button
+        variant="outline"
+        color="red"
+        size="2"
+        onClick={handleClickDecrease}
+      >
+        -
+      </Button>
+
+      <TextField.Input
+        variant="soft"
+        color="red"
+        size="2"
+        type="text"
+        readOnly
+        value={quantity}
+      />
+
+      <Button
+        variant="outline"
+        color="red"
+        size="2"
+        onClick={handleClickIncrease}
+      >
+        +
+      </Button>
+    </FlexContainer>
   );
 }

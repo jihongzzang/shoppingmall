@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-
-import { Typography } from './ui';
+import { Flex, Heading, Link } from './ui';
 
 import PATHNAME from '../constants/pathname';
 
@@ -18,38 +16,33 @@ const navMainLinks = [
   { title: '장바구니', pathName: PATHNAME.CART },
 ];
 
-const Container = styled.div`
+const Container = styled(Flex)`
   margin-bottom: 1.6rem;
+
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
 
   nav {
     display: flex;
 
-    flex-direction: column;
+    column-gap: 2.4rem;
 
-    padding-block: 2.4rem;
+    padding-block: 2.4rem 0.5rem;
 
     ul {
       display: flex;
       column-gap: 2.4rem;
     }
-
-    li {
-      padding: 0.4rem;
-    }
-
-    .active {
-      color: ${({ theme }) => theme.colors.primary};
-    }
   }
 `;
 
-const StyledLink = styled(Link)<{ selected: boolean }>`
-  ${({ theme }) => theme.typography.body_01}
+const HeaderLink = styled(Link)`
+  ${({ theme }) => theme.typography.body_03}
 
-  font-weight: ${({ selected }) => (selected ? 700 : 400)};
+  padding-block: 1.5rem 0.6rem;
 
-  color: ${({ theme, selected }) =>
-    selected ? "theme.colors['gray-1000']" : theme.colors['gray-800']};
+  border-bottom: ${({ theme, selected }) => (selected ? `3px solid ${theme.colors.blackA8}` : 'none')};
+
+  color: ${({ theme, selected }) => (selected ? theme.colors.blackA8 : theme.colors.gray8)};
 `;
 
 export default function Header() {
@@ -58,40 +51,34 @@ export default function Header() {
   const { selctedCategory } = useSelectedCategory();
 
   return (
-    <Container>
-      <Typography as='h1' color='gray-1000' variant='heading_03'>
-        Shop
-      </Typography>
+    <Container direction="column">
+      <Heading variant="heading_03">Shop</Heading>
 
       <nav>
         <ul>
           {navMainLinks.map(({ title, pathName }) => (
             <li key={title}>
-              <StyledLink to={pathName} selected={title === selctedCategory}>
+              <HeaderLink to={pathName} selected={title === selctedCategory}>
                 {title}
-              </StyledLink>
+              </HeaderLink>
             </li>
           ))}
-        </ul>
-
-        {!!categories.length && (
-          <ul>
-            {categories.map(({ id }) => {
+          {!!categories.length
+            && categories.map(({ id }) => {
               const title = categoryFormat(id);
 
               return (
                 <li key={id}>
-                  <StyledLink
+                  <HeaderLink
                     to={`${PATHNAME.PRODUCTS}?categoryId=${id}`}
                     selected={title === selctedCategory}
                   >
                     {title}
-                  </StyledLink>
+                  </HeaderLink>
                 </li>
               );
             })}
-          </ul>
-        )}
+        </ul>
       </nav>
     </Container>
   );

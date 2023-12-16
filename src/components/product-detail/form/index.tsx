@@ -1,3 +1,5 @@
+import { Flex } from '../../ui';
+
 import Options from './Options';
 
 import Quantity from './Quantity';
@@ -8,11 +10,11 @@ import SubmitButton from './SubmitButton';
 
 export default function AddToCartForm() {
   return (
-    <div>
+    <Flex direction="column">
       <Options />
       <Quantity />
       <Price />
       <SubmitButton />
-    </div>
+    </Flex>
   );
 }
