@@ -15,3 +15,7 @@ export { default as Card } from './Card';
 export * from './TextField';
 
 export * from './Select';
+
+export * from './Table';
+
+export * from './Icon';

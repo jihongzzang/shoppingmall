@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { Flex } from '@radix-ui/themes';
+import { Heading, Flex } from '../ui';
+
 import Images from './Images';
 
 import AddToCartForm from './form';
@@ -8,7 +9,6 @@ import AddToCartForm from './form';
 import Description from './Description';
 
 import useProductDetailStore from '../../hooks/useProductDetailStore';
-import { Heading } from '../ui';
 
 const Container = styled(Flex)`
   aside {

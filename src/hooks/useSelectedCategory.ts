@@ -12,8 +12,6 @@ export default function useSelectedCategory() {
 
   const [searchParam] = useSearchParams();
 
-  console.log(selctedCategory);
-
   useEffect(() => {
     if (pathname === PATHNAME.HOME) {
       setSelectedCategory('홈');

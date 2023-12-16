@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Text, Table } from '../ui';
+
 import LineItemView from './LineItemView';
 
 import { Cart } from '../../types';
@@ -13,8 +15,20 @@ const Container = styled.div`
 
   th,
   td {
-    padding: 0.5rem;
     text-align: left;
+  }
+
+  th {
+    border-top: 1px solid ${({ theme }) => theme.colors.gray3};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
+  }
+
+  td {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
+  }
+
+  tfoot > tr > td {
+    border-bottom: none;
   }
 `;
 
@@ -26,31 +40,33 @@ const tableHeads = ['제품', '단가', '수량', '금액'];
 
 export default function CartView({ cart }: CartViewProps) {
   if (!cart?.lineItems.length) {
-    return <p>장바구니가 비었습니다.</p>;
+    return <Text as="p">장바구니가 비었습니다.</Text>;
   }
 
   return (
     <Container>
-      <table>
-        <thead>
-          <tr>
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
             {tableHeads.map((item) => (
-              <th key={item}>{item}</th>
+              <Table.ColumnHeaderCell key={item}>{item}</Table.ColumnHeaderCell>
             ))}
-          </tr>
-        </thead>
-        <tbody>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
           {cart.lineItems.map((lineItem) => (
             <LineItemView key={lineItem.id} lineItem={lineItem} />
           ))}
-        </tbody>
+        </Table.Body>
+
         <tfoot>
-          <tr>
-            <th colSpan={3}>합계</th>
-            <td>{numberFormat(cart.totalPrice)}</td>
-          </tr>
+          <Table.Row>
+            <Table.Cell colSpan={3}>합계</Table.Cell>
+            <Table.Cell>{numberFormat(cart.totalPrice)}</Table.Cell>
+          </Table.Row>
         </tfoot>
-      </table>
+      </Table.Root>
     </Container>
   );
 }

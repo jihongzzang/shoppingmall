@@ -17,12 +17,12 @@ describe('routes', () => {
     it('renders the home page', async () => {
       renderRouter(PATHNAME.HOME);
 
-      screen.getByText(/Products/);
+      screen.getByText(/Shop/);
 
       await waitFor(() => {
-        screen.getByText(/Category #1/);
-        screen.getByText(/Category #2/);
-        screen.getByText(/Cart/);
+        screen.getByText(/상의/);
+        screen.getByText(/아우터/);
+        screen.getByText(/장바구니/);
       });
     });
   });

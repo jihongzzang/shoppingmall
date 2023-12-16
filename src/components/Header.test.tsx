@@ -12,5 +12,7 @@ test('Header', () => {
   render(<Header />);
 
   screen.getByText(/Shop/);
-  screen.getByRole('link', { name: 'Home' });
+  screen.getByRole('link', { name: '홈' });
+  screen.getByRole('link', { name: '전체' });
+  screen.getByRole('link', { name: '장바구니' });
 });

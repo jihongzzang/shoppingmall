@@ -19,18 +19,24 @@ const navMainLinks = [
 const Container = styled(Flex)`
   margin-bottom: 1.6rem;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray3};
-
   nav {
     display: flex;
 
+    flex-direction: column;
+
     column-gap: 2.4rem;
 
-    padding-block: 2.4rem 0.5rem;
+    padding-block: 1.2rem 0.5rem;
 
     ul {
+      width: fit-content;
       display: flex;
       column-gap: 2.4rem;
+    }
+
+    li {
+      height: fit-content;
+      padding-block: 1.5rem 0.6rem;
     }
   }
 `;
@@ -38,7 +44,11 @@ const Container = styled(Flex)`
 const HeaderLink = styled(Link)`
   ${({ theme }) => theme.typography.body_03}
 
+  white-space: nowrap;
+
   padding-block: 1.5rem 0.6rem;
+
+  font-weight: ${({ selected }) => (selected ? 700 : 400)};
 
   border-bottom: ${({ theme, selected }) => (selected ? `3px solid ${theme.colors.blackA8}` : 'none')};
 
@@ -63,6 +73,9 @@ export default function Header() {
               </HeaderLink>
             </li>
           ))}
+        </ul>
+
+        <ul>
           {!!categories.length
             && categories.map(({ id }) => {
               const title = categoryFormat(id);

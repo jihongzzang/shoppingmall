@@ -15,7 +15,9 @@ describe('Options', () => {
     it('renders nothing', () => {
       const { container } = render(<Options options={options} />);
 
-      expect(container).toBeEmptyDOMElement();
+      const option = container.querySelector('p');
+
+      expect(option).not.toBeInTheDocument();
     });
   });
 

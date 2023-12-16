@@ -19,7 +19,9 @@ describe('Images', () => {
     it('renders nothing', () => {
       const { container } = render(<Images images={images} />);
 
-      expect(container).toBeEmptyDOMElement();
+      const img = container.querySelector('img');
+
+      expect(img).not.toBeInTheDocument();
     });
   });
 

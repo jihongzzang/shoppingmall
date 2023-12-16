@@ -5,6 +5,9 @@ module.exports = {
     '<rootDir>/src/setupTests.ts',
     'jest-styled-components',
   ],
+  moduleNameMapper: {
+    '\\.(css|less)$': 'identity-obj-proxy',
+  },
   transform: {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',

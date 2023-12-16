@@ -13,6 +13,8 @@ import {
 
 import { ThemeProvider } from 'styled-components';
 
+import { Theme as RadixThemeProvider } from '@radix-ui/themes';
+
 import defaultTheme from '../styles/defaultTheme';
 
 import routes from '../routes';
@@ -27,7 +29,9 @@ export function render(
 ) {
   return originalRender(
     <MemoryRouter initialEntries={[path]}>
-      <ThemeProvider theme={defaultTheme}>{element}</ThemeProvider>
+      <ThemeProvider theme={defaultTheme}>
+        <RadixThemeProvider>{element}</RadixThemeProvider>
+      </ThemeProvider>
     </MemoryRouter>,
   );
 }
@@ -37,7 +41,9 @@ export function renderRouter(path: string) {
 
   return originalRender(
     <ThemeProvider theme={defaultTheme}>
-      <RouterProvider router={router} />
+      <RadixThemeProvider>
+        <RouterProvider router={router} />
+      </RadixThemeProvider>
     </ThemeProvider>,
   );
 }

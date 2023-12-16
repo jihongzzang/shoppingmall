@@ -1,7 +1,12 @@
-import { fireEvent, screen } from '@testing-library/react';
-import fixtures from '../../../../fixtures';
-import { render } from '../../../utils/test-helpers';
+import { screen } from '@testing-library/react';
+
+import userEvent from '@testing-library/user-event';
+
 import Options from './Options';
+
+import fixtures from '../../../../fixtures';
+
+import { render } from '../../../utils/test-helpers';
 
 const [product] = fixtures.products;
 
@@ -30,7 +35,7 @@ describe('Options', () => {
   });
 
   context('when selection is changed', () => {
-    it("calls 'changeOptionItem action'", () => {
+    it("calls 'changeOptionItem action'", async () => {
       render(<Options />);
 
       const [option] = product.options;
@@ -38,9 +43,11 @@ describe('Options', () => {
 
       const [combobox] = screen.getAllByRole('combobox');
 
-      fireEvent.change(combobox, {
-        target: { value: item.id },
-      });
+      await userEvent.click(combobox);
+
+      const element = screen.getByRole('option', { name: item.name });
+
+      await userEvent.click(element);
 
       expect(store.changeOptionItem).toBeCalledWith({
         optionId: option.id,

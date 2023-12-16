@@ -17,7 +17,9 @@ describe('Description', () => {
     it('renders nothing', () => {
       const { container } = render(<Description value={text} />);
 
-      expect(container).toBeEmptyDOMElement();
+      const ul = container.querySelector('ul');
+
+      expect(ul).not.toBeInTheDocument();
     });
   });
 

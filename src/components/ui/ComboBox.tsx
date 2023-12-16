@@ -6,7 +6,9 @@ import { Select } from './Select';
 
 const Container = styled.div`
   label {
-    margin-right: 2rem;
+    ${(props) => props.theme.typography.body_01}
+    display: inline-block;
+    min-width: 3.8rem;
   }
 `;
 
@@ -37,12 +39,17 @@ export default function ComboBox<T>({
   return (
     <Container>
       <label htmlFor={id.current}>{label}</label>
+
       <Select.Root value={itemToId(selectedItem)} onValueChange={handleChange}>
         <Select.Trigger />
-        <Select.Content position="popper">
-          <Select.Group id={id.current} defaultValue={itemToId(selectedItem)}>
+        <Select.Content>
+          <Select.Group id={id.current}>
             {items.map((item) => (
-              <Select.Item key={itemToId(item)} value={itemToId(item)}>
+              <Select.Item
+                id={itemToId(item)}
+                key={itemToId(item)}
+                value={itemToId(item)}
+              >
                 {itemToText(item)}
               </Select.Item>
             ))}

@@ -17,7 +17,9 @@ describe('LineItemView', () => {
     it('renders nothing', () => {
       const { container } = render(<LineItemView lineItem={lineItem} />);
 
-      expect(container).toBeEmptyDOMElement();
+      const tr = container.querySelector('tr');
+
+      expect(tr).not.toBeInTheDocument();
     });
   });
 

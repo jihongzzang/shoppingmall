@@ -1,6 +1,8 @@
-import { Button } from '../../ui';
+import { Button, Flex, Text } from '../../ui';
 
 import useProductFormStore from '../../../hooks/useProductFormStore';
+
+import CheckCircledIcon from '../../ui/Icon';
 
 export default function SubmitButton() {
   const [{ done }, store] = useProductFormStore();
@@ -10,7 +12,14 @@ export default function SubmitButton() {
   };
 
   if (done) {
-    return <p>장바구니에 담았습니다.</p>;
+    return (
+      <Flex align="center" gap="2">
+        <CheckCircledIcon color="green" width="2rem" height="2rem" />
+        <Text as="p" variant="body_04">
+          장바구니에 담았습니다.
+        </Text>
+      </Flex>
+    );
   }
 
   return (

@@ -6,6 +6,7 @@ import Header from './Header';
 
 const Container = styled.div`
   margin-inline: auto;
+  padding-block: 3.2rem;
   width: 90%;
 `;
 

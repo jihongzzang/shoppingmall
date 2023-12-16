@@ -1,3 +1,5 @@
+import { Flex, Heading } from '../components/ui';
+
 import CartView from '../components/cart';
 
 import useFetchCart from '../hooks/useFetchCart';
@@ -10,10 +12,11 @@ export default function CartPage() {
   }
 
   return (
-    <div>
-      <h2>장바구니</h2>
+    <Flex direction="column" gap="5">
+      <Heading as="h2" variant="heading_03">
+        장바구니
+      </Heading>
       <CartView cart={cart} />
-      ;
-    </div>
+    </Flex>
   );
 }

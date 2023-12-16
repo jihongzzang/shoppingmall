@@ -13,6 +13,8 @@ export default function Options() {
     store.changeOptionItem({ optionId, optionItemId });
   };
 
+  if (!product.options.length) return null;
+
   return (
     <Flex direction="column" gap="2" my="3">
       {product.options.map((option, index) => (
