@@ -1,4 +1,5 @@
 import fixtures from '../../fixtures';
+
 import ProductFormStore from './ProductFormStore';
 
 const addProductToCart = jest.fn();

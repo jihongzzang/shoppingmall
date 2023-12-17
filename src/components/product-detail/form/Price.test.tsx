@@ -6,7 +6,7 @@ import { render } from '../../../utils/test-helpers';
 
 import Price from './Price';
 
-import ProductFormStore from '../../../stores/ProductFormStore';
+import { ProductFormStore } from '../../../stores';
 
 import fixtures from '../../../../fixtures';
 

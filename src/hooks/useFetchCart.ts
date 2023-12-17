@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 
 import { useStore } from 'usestore-ts';
 
-import CartStore from '../stores/CartStore';
+import { CartStore } from '../stores';
 
 export default function useFetchCart() {
   const store = container.resolve(CartStore);
