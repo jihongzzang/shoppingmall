@@ -1,4 +1,4 @@
-import { render } from '../../utils/test-helpers';
+import { render } from '../../test-helpers';
 
 import Options from './Options';
 

@@ -2,7 +2,7 @@ import { useRef } from 'react';
 
 import styled from 'styled-components';
 
-import { Select } from './Select';
+import { Select } from '../Select';
 
 const Container = styled.div`
   label {
@@ -42,7 +42,7 @@ export default function ComboBox<T>({
 
       <Select.Root value={itemToId(selectedItem)} onValueChange={handleChange}>
         <Select.Trigger />
-        <Select.Content>
+        <Select.Content position="popper">
           <Select.Group id={id.current}>
             {items.map((item) => (
               <Select.Item

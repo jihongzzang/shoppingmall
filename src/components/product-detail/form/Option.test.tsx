@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 
 import userEvent from '@testing-library/user-event';
 
-import { render } from '../../../utils/test-helpers';
+import { render } from '../../../test-helpers';
 
 import Option from './Option';
 

@@ -1,7 +1,5 @@
 export { default as Button } from './Button';
 
-export { default as ComboBox } from './ComboBox';
-
 export * from './Typograhies';
 
 export { default as Link } from './Link';

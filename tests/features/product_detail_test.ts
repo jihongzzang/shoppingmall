@@ -3,7 +3,7 @@ Feature('Product Detail');
 Scenario('Visit the product page', ({ I }) => {
   I.amOnPage('/');
 
-  I.click('Products');
+  I.click('전체');
 
   I.click('CBCL 하트자수맨투맨');
 

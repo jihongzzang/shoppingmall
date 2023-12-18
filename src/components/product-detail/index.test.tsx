@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 
 import { container } from 'tsyringe';
 
-import { render } from '../../utils/test-helpers';
+import { render } from '../../test-helpers';
 
 import { ProductDetailStore } from '../../stores';
 

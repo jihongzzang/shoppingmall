@@ -1,6 +1,6 @@
-import fixtures from '../../fixtures';
-
 import ApiService from './ApiService';
+
+import fixtures from '../../fixtures';
 
 import { ErrorReponse, transformError } from './apiUtils';
 
@@ -43,7 +43,7 @@ describe('ApiService', () => {
 
   describe('fetchProduct', () => {
     context('with an invalid product ID', () => {
-      it('hould return a 404 error', async () => {
+      it('should return a 404 error', async () => {
         let errorResponse: ErrorReponse | null = null;
 
         try {
@@ -57,7 +57,7 @@ describe('ApiService', () => {
       });
     });
 
-    context('fetchProduct with a valid product ID', () => {
+    context('with a valid product ID', () => {
       const { id } = fixtures.products[0];
 
       it('should return the detailed product information', async () => {
@@ -68,26 +68,22 @@ describe('ApiService', () => {
     });
   });
 
-  test('fetchCart', async () => {
-    const cart = await apiService.fetchCart();
-
-    expect(cart.lineItems).not.toHaveLength(0);
-  });
-
   test('addProductToCart', async () => {
     const [product] = fixtures.products;
 
     const [option] = product.options;
     const [, item] = option.items;
 
-    await apiService
-      .addProductToCart({
-        productId: product.id,
-        options: [{ id: option.id, itemId: item.id }],
-        quantity: 1,
-      })
-      .then(() => {
-        expect(true).toBe(true);
-      });
+    await apiService.addProductToCart({
+      productId: product.id,
+      options: [{ id: option.id, itemId: item.id }],
+      quantity: 1,
+    });
+  });
+
+  test('fetchCart', async () => {
+    const cart = await apiService.fetchCart();
+
+    expect(cart.lineItems).not.toHaveLength(0);
   });
 });

@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 
-import { render } from '../../utils/test-helpers';
+import { render } from '../../test-helpers';
 
 import Products from '.';
 

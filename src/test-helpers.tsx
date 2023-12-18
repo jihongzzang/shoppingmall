@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { render as originalRender } from '@testing-library/react';
 
@@ -15,9 +13,9 @@ import { ThemeProvider } from 'styled-components';
 
 import { Theme as RadixThemeProvider } from '@radix-ui/themes';
 
-import defaultTheme from '../styles/defaultTheme';
+import defaultTheme from './styles/defaultTheme';
 
-import routes from '../routes';
+import routes from './routes';
 
 type Option = {
   path?: string;

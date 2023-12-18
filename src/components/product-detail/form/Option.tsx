@@ -1,4 +1,4 @@
-import { ComboBox } from '../../ui';
+import { ComboBox } from '../../ui/molecule';
 
 import { ChangeFunction } from './types';
 

@@ -1,6 +1,6 @@
 import { screen, waitFor } from '@testing-library/react';
 
-import { renderRouter } from './utils/test-helpers';
+import { renderRouter } from './test-helpers';
 
 import fixtures from '../fixtures';
 

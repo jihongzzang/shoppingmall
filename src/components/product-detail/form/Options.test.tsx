@@ -6,7 +6,7 @@ import Options from './Options';
 
 import fixtures from '../../../../fixtures';
 
-import { render } from '../../../utils/test-helpers';
+import { render } from '../../../test-helpers';
 
 const [product] = fixtures.products;
 

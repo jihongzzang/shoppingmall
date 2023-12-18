@@ -2,7 +2,7 @@ import { container } from 'tsyringe';
 
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 
-import { render } from '../../../utils/test-helpers';
+import { render } from '../../../test-helpers';
 
 import { ProductDetailStore } from '../../../stores';
 
