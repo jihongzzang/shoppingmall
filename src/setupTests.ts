@@ -6,6 +6,8 @@ import 'reflect-metadata';
 
 import ResizeObserver from 'resize-observer-polyfill';
 
+import 'whatwg-fetch';
+
 import server from './mocks/server';
 
 beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));

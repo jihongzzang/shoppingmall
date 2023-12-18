@@ -1,8 +1,17 @@
-// in this file you can append custom step methods to 'I' object
+const { I } = inject();
 
-module.exports = () => actor({
+export = () => actor({
+  async login() {
+    I.amOnPage('/');
 
-  // Define custom steps here, use 'this' to access default methods of I.
-  // It is recommended to place a general 'login' function here.
+    I.click('로그인');
 
+    I.fillField('E-mail', 'tester@example.com');
+
+    I.fillField('Password', 'password');
+
+    I.click('로그인', { css: 'form' });
+
+    I.waitForText('로그아웃');
+  },
 });

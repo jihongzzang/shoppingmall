@@ -1,4 +1,4 @@
-import { screen, waitFor } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 
 import { renderRouter } from './test-helpers';
 
@@ -22,7 +22,6 @@ describe('routes', () => {
       await waitFor(() => {
         screen.getByText(/상의/);
         screen.getByText(/아우터/);
-        screen.getByText(/장바구니/);
       });
     });
   });
@@ -81,6 +80,34 @@ describe('routes', () => {
         await waitFor(() => {
           screen.getByText(/장바구니/);
         });
+      });
+    });
+  });
+
+  context(`when the current path is '${PATHNAME.LOGIN}`, () => {
+    it('renders the login page', async () => {
+      renderRouter(`${PATHNAME.LOGIN}`);
+
+      screen.getByRole('heading', { name: '로그인' });
+
+      await waitFor(() => {
+        screen.getByText(/상의/);
+      });
+
+      fireEvent.change(screen.getByLabelText('E-mail'), {
+        target: { value: 'newbie@example.com' },
+      });
+
+      fireEvent.change(screen.getByLabelText('Password'), {
+        target: { value: 'password' },
+      });
+
+      fireEvent.click(screen.getByRole('button', { name: '로그인' }));
+
+      await waitFor(() => {
+        // screen.getByText(/주문/);
+        screen.getByText(/장바구니/);
+        screen.getByText(/로그아웃/);
       });
     });
   });

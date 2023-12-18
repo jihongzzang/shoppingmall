@@ -1,8 +1,22 @@
 import { Category } from '../src/types';
 
 const categories: Category[] = [
-  { id: '0BV000CAT0001', name: 'Category #1' },
-  { id: '0BV000CAT0002', name: 'Category #2' },
+  {
+    id: '0BV000CAT0001',
+    name: 'top',
+  },
+  {
+    id: '0BV000CAT0002',
+    name: 'outer',
+  },
+  {
+    id: '0BV000CAT0003',
+    name: 'bottom',
+  },
+  {
+    id: '0BV000CAT0004',
+    name: 'acc',
+  },
 ];
 
 export default categories;

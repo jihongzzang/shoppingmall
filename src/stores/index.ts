@@ -1,3 +1,5 @@
+export { default as LoginFormStore } from './LoginFormStore';
+
 export { default as CategoriesStore } from './CategoriesStore';
 
 export { default as ProductsStore } from './ProductsStore';

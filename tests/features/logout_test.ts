@@ -9,11 +9,11 @@ Before(({ backdoor, I }) => {
 Scenario('Logout success', ({ I }) => {
   I.amOnPage('/');
 
-  I.see('Cart');
+  I.see('장바구니');
 
-  I.click('Logout');
+  I.click('로그아웃');
 
-  I.waitForText('Login');
+  I.waitForText('로그인');
 
-  I.dontSee('Cart');
+  I.dontSee('장바구니');
 });

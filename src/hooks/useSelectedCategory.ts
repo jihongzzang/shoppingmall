@@ -18,6 +18,10 @@ export default function useSelectedCategory() {
       return;
     }
 
+    if (pathname === PATHNAME.LOGIN) {
+      setSelectedCategory('로그인');
+    }
+
     if (pathname.includes(PATHNAME.CART)) {
       setSelectedCategory('장바구니');
     }

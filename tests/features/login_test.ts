@@ -7,22 +7,24 @@ Before(({ backdoor }) => {
 Scenario('Login success', ({ I }) => {
   I.amOnPage('/');
 
-  I.click('Login');
+  I.click('로그인');
 
   I.fillField('E-mail', 'tester@example.com');
+
   I.fillField('Password', 'password');
 
   I.click('로그인', { css: 'form' });
 
-  I.waitForText('Cart');
+  I.waitForText('장바구니');
 });
 
 Scenario('Login failed', ({ I }) => {
   I.amOnPage('/');
 
-  I.click('Login');
+  I.click('로그인');
 
   I.fillField('E-mail', 'tester@example.com');
+
   I.fillField('Password', 'xxx');
 
   I.click('로그인', { css: 'form' });

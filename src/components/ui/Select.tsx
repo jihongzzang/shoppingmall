@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import {
   Select as RadixSelect,
   SelectRoot as RadixSelectRoot,
-  SelectLabel as RadixSelectLabel,
   SelectTrigger as RadixSelectTrigger,
+  SelectLabel as RadixSelectLabel,
+  SelectGroup as RadixSelectGroup,
   SelectContent as RadixSelectContent,
   SelectItem as RadixSelectItem,
-  SelectGroup as RadixSelectGroup,
   SelectSeparator as RadixSelectSeparator,
 } from '@radix-ui/themes';
 

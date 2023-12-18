@@ -17,3 +17,5 @@ export * from './Select';
 export * from './Table';
 
 export * from './Icon';
+
+export * from './Label';

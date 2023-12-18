@@ -2,6 +2,7 @@ import Layout from './components/Layout';
 
 import {
   HomePage,
+  LoginPage,
   ProductListPage,
   ProductDetailPage,
   CartPage,
@@ -14,6 +15,7 @@ const routes = [
     element: <Layout />,
     children: [
       { path: PATHNAME.HOME, element: <HomePage /> },
+      { path: PATHNAME.LOGIN, element: <LoginPage /> },
       { path: PATHNAME.PRODUCTS, element: <ProductListPage /> },
       { path: `${PATHNAME.PRODUCTS}/:id`, element: <ProductDetailPage /> },
       { path: PATHNAME.CART, element: <CartPage /> },
