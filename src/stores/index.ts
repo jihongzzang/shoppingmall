@@ -1,6 +1,8 @@
-export { default as LoginFormStore } from './LoginFormStore';
-
 export { default as CategoriesStore } from './CategoriesStore';
+
+export { default as SignupFormStore } from './SignupFormStore';
+
+export { default as LoginFormStore } from './LoginFormStore';
 
 export { default as ProductsStore } from './ProductsStore';
 

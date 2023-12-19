@@ -10,6 +10,8 @@ export { default as Flex } from './Flex';
 
 export { default as Card } from './Card';
 
+export { default as Seperator } from './Seperator';
+
 export * from './TextField';
 
 export * from './Select';

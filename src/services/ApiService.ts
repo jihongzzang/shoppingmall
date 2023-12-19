@@ -14,7 +14,6 @@ export default class ApiService {
   private accessToken = '';
 
   setAccessToken(accessToken: string) {
-    console.log(accessToken);
     if (accessToken === this.accessToken) {
       // caching accessToken
       return;
@@ -54,6 +53,26 @@ export default class ApiService {
     const { id, name } = data;
 
     return { id, name };
+  }
+
+  async signup({
+    name,
+    email,
+    password,
+  }: {
+    name: string;
+    email: string;
+    password: string;
+  }): Promise<string> {
+    const { data } = await this.instance.post('/users', {
+      email,
+      name,
+      password,
+    });
+
+    const { accessToken } = data;
+
+    return accessToken;
   }
 
   async fetchCategories(): Promise<Category[]> {

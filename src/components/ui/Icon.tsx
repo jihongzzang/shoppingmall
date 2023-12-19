@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-import { CheckCircledIcon as RadixCheckCircledIcon } from '@radix-ui/react-icons';
+import {
+  CheckCircledIcon as RadixCheckCircledIcon,
+  CrossCircledIcon as RadixCheckCrossCircledIcon,
+} from '@radix-ui/react-icons';
 
-const CheckCircledIcon = styled(RadixCheckCircledIcon)``;
+export const CheckCircledIcon = styled(RadixCheckCircledIcon)``;
 
-export default CheckCircledIcon;
+export const CrossCircledIcon = styled(RadixCheckCrossCircledIcon)``;

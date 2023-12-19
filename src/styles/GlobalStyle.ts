@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     color: ${(props) => props.theme.colors.blackA10};
+    text-decoration: none;
   }
 
   input,

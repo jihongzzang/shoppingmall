@@ -16,7 +16,9 @@ const productSummaries: ProductSummary[] = fixtures.products.map((product) => ({
 }));
 
 const handlers = [
-  rest.get(`${BASE_URL}/categories`, (req, res, ctx) => res(ctx.json({ categories: fixtures.categories }))),
+  rest.get(`${BASE_URL}/categories`, (req, res, ctx) => {
+    res(ctx.json({ categories: fixtures.categories }));
+  }),
 
   rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(ctx.json({ products: productSummaries }))),
 
@@ -33,6 +35,8 @@ const handlers = [
 
   rest.post(`${BASE_URL}/session`, (req, res, ctx) => res(ctx.json({ accessToken: 'USER' }))),
   // 400 작성
+
+  rest.delete(`${BASE_URL}/session`, (req, res, ctx) => res(ctx.status(200))),
 
   rest.post(`${BASE_URL}/users/me`, (req, res, ctx) => res(ctx.status(201))),
 ];
