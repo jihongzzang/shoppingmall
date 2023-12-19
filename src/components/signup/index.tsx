@@ -88,7 +88,7 @@ export default function SignupForm() {
   return (
     <Container direction='column'>
       <Heading as='h2' variant='heading_03'>
-        로그인
+        회원 가입
       </Heading>
 
       <FormWrraper>

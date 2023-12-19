@@ -87,7 +87,7 @@ export default function LoginForm() {
   return (
     <Container direction='column' gap='4'>
       <Heading as='h2' variant='heading_03'>
-        회원 가입
+        로그인
       </Heading>
       <FormWrraper>
         <form onSubmit={handleSubmit}>

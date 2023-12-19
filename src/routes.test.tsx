@@ -94,11 +94,11 @@ describe('routes', () => {
         screen.getByText(/상의/);
       });
 
-      fireEvent.change(screen.getByLabelText('E-mail'), {
+      fireEvent.change(screen.getByLabelText('이메일'), {
         target: { value: 'newbie@example.com' },
       });
 
-      fireEvent.change(screen.getByLabelText('Password'), {
+      fireEvent.change(screen.getByLabelText('비밀번호'), {
         target: { value: 'password' },
       });
 
@@ -108,6 +108,46 @@ describe('routes', () => {
         // screen.getByText(/주문/);
         screen.getByText(/장바구니/);
         screen.getByText(/로그아웃/);
+      });
+    });
+  });
+
+  context(`when the current path is '${PATHNAME.SIGNUP}`, () => {
+    it('renders the signup page', async () => {
+      renderRouter(`${PATHNAME.SIGNUP}`);
+
+      await waitFor(() => {
+        screen.getByRole('heading', { name: '회원 가입' });
+      });
+
+      fireEvent.change(screen.getByLabelText('이메일'), {
+        target: { value: 'newbie@example.com' },
+      });
+
+      fireEvent.change(screen.getByLabelText('이름'), {
+        target: { value: 'Newbie' },
+      });
+
+      ['비밀번호', '비밀번호 확인'].forEach((label) => {
+        fireEvent.change(screen.getByLabelText(label), {
+          target: { value: 'password' },
+        });
+      });
+
+      fireEvent.click(screen.getByRole('button', { name: '회원 가입' }));
+
+      await waitFor(() => {
+        screen.getByText(/회원 가입 완료/);
+      });
+    });
+  });
+
+  context(`when the current path is '${PATHNAME.SIGNUP_COMPLETE}`, () => {
+    it('renders the signup complete page', async () => {
+      renderRouter(`${PATHNAME.SIGNUP_COMPLETE}`);
+
+      await waitFor(() => {
+        screen.getByText(/회원 가입 완료/);
       });
     });
   });

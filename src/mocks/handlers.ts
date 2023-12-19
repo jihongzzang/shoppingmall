@@ -16,11 +16,13 @@ const productSummaries: ProductSummary[] = fixtures.products.map((product) => ({
 }));
 
 const handlers = [
-  rest.get(`${BASE_URL}/categories`, (req, res, ctx) => {
-    res(ctx.json({ categories: fixtures.categories }));
-  }),
+  rest.get(`${BASE_URL}/categories`, (req, res, ctx) =>
+    res(ctx.json({ categories: fixtures.categories }))
+  ),
 
-  rest.get(`${BASE_URL}/products`, (req, res, ctx) => res(ctx.json({ products: productSummaries }))),
+  rest.get(`${BASE_URL}/products`, (req, res, ctx) =>
+    res(ctx.json({ products: productSummaries }))
+  ),
 
   rest.get(`${BASE_URL}/products/:id`, (req, res, ctx) => {
     const product = fixtures.products.find((i) => i.id === req.params.id);
@@ -31,14 +33,29 @@ const handlers = [
   }),
   rest.get(`${BASE_URL}/cart`, (req, res, ctx) => res(ctx.json(fixtures.cart))),
 
-  rest.post(`${BASE_URL}/cart/line-items`, (req, res, ctx) => res(ctx.status(201))),
+  rest.post(`${BASE_URL}/cart/line-items`, (req, res, ctx) =>
+    res(ctx.status(201))
+  ),
 
-  rest.post(`${BASE_URL}/session`, (req, res, ctx) => res(ctx.json({ accessToken: 'USER' }))),
-  // 400 작성
+  // 로그인
+  rest.post(
+    `${BASE_URL}/session`,
+    (req, res, ctx) => res(ctx.json({ accessToken: 'USER' }))
+    // TO DO 400 작성
+  ),
 
+  // 로그아웃
   rest.delete(`${BASE_URL}/session`, (req, res, ctx) => res(ctx.status(200))),
 
-  rest.post(`${BASE_URL}/users/me`, (req, res, ctx) => res(ctx.status(201))),
+  // 현재 유저확인
+  rest.get(`${BASE_URL}/users/me`, (req, res, ctx) =>
+    res(ctx.json({ id: '0BV000USR0001', name: 'Tester' }))
+  ),
+
+  // 회원가입
+  rest.post(`${BASE_URL}/users`, (req, res, ctx) =>
+    res(ctx.json({ accessToken: 'ACCESS-TOKEN' }))
+  ),
 ];
 
 export default handlers;
