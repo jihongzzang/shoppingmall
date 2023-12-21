@@ -1,6 +1,6 @@
 import { Text } from '../ui';
 
-import Table from '../Table';
+import Table from '../line-item/Table';
 
 import { Cart } from '../../types';
 

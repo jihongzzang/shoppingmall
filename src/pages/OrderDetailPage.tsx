@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { Text } from '../components/ui';
 
-import Order from '../components/order';
+import Order from '../components/order-detail';
 
 import useFetchOrder from '../hooks/useFetchOrder';
 
@@ -15,7 +15,7 @@ export default function OrderDetailPage() {
 
   if (loading) {
     return (
-      <Text as='p' variant='body_02'>
+      <Text as="p" variant="body_02">
         Loading...
       </Text>
     );
@@ -23,7 +23,7 @@ export default function OrderDetailPage() {
 
   if (error) {
     return (
-      <Text as='p' variant='body_02'>
+      <Text as="p" variant="body_02">
         Error!
       </Text>
     );

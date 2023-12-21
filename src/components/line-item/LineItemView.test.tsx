@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react';
 
-import { render } from '../test-helpers';
+import { render } from '../../test-helpers';
 
 import LineItemView from './LineItemView';
 
-import { LineItem } from '../types';
+import { LineItem } from '../../types';
 
-import fixtures from '../../fixtures';
+import fixtures from '../../../fixtures';
 
 const context = describe;
 

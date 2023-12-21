@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-import { Table } from './ui';
+import { Table } from '../ui';
 
-import Options from './cart/Options';
+import Options from './Options';
 
-import { LineItem } from '../types';
+import { LineItem } from '../../types';
 
-import { numberFormat } from '../utils';
+import { numberFormat } from '../../utils';
 
 type LineItemViewProps = {
   lineItem: LineItem;

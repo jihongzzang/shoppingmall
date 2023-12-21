@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 import LineItemView from './LineItemView';
 
-import { LineItem } from '../types';
+import { LineItem } from '../../types';
 
-import { numberFormat } from '../utils';
+import { numberFormat } from '../../utils';
 
-import { Table as StyledTable } from './ui';
+import { Table as StyledTable } from '../ui';
 
 const TableContainer = styled.div`
   table {

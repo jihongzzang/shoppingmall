@@ -1,6 +1,6 @@
 import { Heading, Flex } from '../components/ui';
 
-import Orders from '../components/orders';
+import Orders from '../components/order-list';
 
 import useFetchOrderList from '../hooks/useFetchOrderList';
 
