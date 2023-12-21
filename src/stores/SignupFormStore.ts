@@ -35,11 +35,11 @@ export default class SignupFormStore {
 
   get valid() {
     return (
-      this.email.includes('@') &&
-      !!this.email &&
-      !!this.name &&
-      this.password.length >= 4 &&
-      this.password === this.passwordConfirmation
+      this.email.includes('@')
+      && !!this.email
+      && !!this.name
+      && this.password.length >= 4
+      && this.password === this.passwordConfirmation
     );
   }
 

@@ -21,8 +21,9 @@ import { categoryFormat } from '../utils';
 const navMainLinks = [
   { title: '홈', pathName: PATHNAME.HOME },
   { title: '전체', pathName: PATHNAME.PRODUCTS },
-  { title: '장바구니', pathName: PATHNAME.CART },
   { title: '로그인', pathName: PATHNAME.LOGIN },
+  { title: '장바구니', pathName: PATHNAME.CART },
+  { title: '주문목록', pathName: PATHNAME.ORDERS },
 ];
 
 const Container = styled(Flex)`
@@ -38,7 +39,7 @@ const Container = styled(Flex)`
     padding-block: 1.2rem 0.5rem;
 
     ul {
-      width: fit-content;
+      width: 100%;
       display: flex;
       column-gap: 2.4rem;
     }
@@ -46,6 +47,14 @@ const Container = styled(Flex)`
     li {
       height: fit-content;
       padding-block: 1.5rem 0.6rem;
+    }
+
+    li:nth-of-type(7) {
+      margin-left: auto;
+    }
+
+    #list-logoutWrraper {
+      padding-block: 1.1rem 0.4rem;
     }
   }
 `;
@@ -95,33 +104,6 @@ export default function Header() {
             </li>
           ))}
 
-          {accessToken ? (
-            <>
-              <li>
-                <HeaderLink
-                  to={navMainLinks[2].pathName}
-                  selected={navMainLinks[2].title === selctedCategory}
-                >
-                  {navMainLinks[2].title}
-                </HeaderLink>
-              </li>
-              <li>
-                <Button onClick={handleClickLogout}>로그아웃</Button>
-              </li>
-            </>
-          ) : (
-            <li>
-              <HeaderLink
-                to={navMainLinks[3].pathName}
-                selected={navMainLinks[3].title === selctedCategory}
-              >
-                {navMainLinks[3].title}
-              </HeaderLink>
-            </li>
-          )}
-        </ul>
-
-        <ul>
           {!!categories.length
             && categories.map(({ id }) => {
               const title = categoryFormat(id);
@@ -137,6 +119,39 @@ export default function Header() {
                 </li>
               );
             })}
+
+          {accessToken ? (
+            <>
+              <li>
+                <HeaderLink
+                  to={navMainLinks[3].pathName}
+                  selected={navMainLinks[3].title === selctedCategory}
+                >
+                  {navMainLinks[3].title}
+                </HeaderLink>
+              </li>
+              <li>
+                <HeaderLink
+                  to={navMainLinks[4].pathName}
+                  selected={navMainLinks[4].title === selctedCategory}
+                >
+                  {navMainLinks[4].title}
+                </HeaderLink>
+              </li>
+              <li id="list-logoutWrraper">
+                <Button onClick={handleClickLogout}>로그아웃</Button>
+              </li>
+            </>
+          ) : (
+            <li>
+              <HeaderLink
+                to={navMainLinks[2].pathName}
+                selected={navMainLinks[2].title === selctedCategory}
+              >
+                {navMainLinks[2].title}
+              </HeaderLink>
+            </li>
+          )}
         </ul>
       </nav>
     </Container>

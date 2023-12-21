@@ -26,6 +26,10 @@ export default function useSelectedCategory() {
       setSelectedCategory('장바구니');
     }
 
+    if (pathname.includes(PATHNAME.ORDERS)) {
+      setSelectedCategory('주문목록');
+    }
+
     if (pathname === PATHNAME.PRODUCTS) {
       if (!searchParam.get('categoryId')) {
         setSelectedCategory('전체');

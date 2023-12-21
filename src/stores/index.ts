@@ -11,3 +11,7 @@ export { default as ProductDetailStore } from './ProductDetailStore';
 export { default as ProductFormStore } from './ProductFormStore';
 
 export { default as CartStore } from './CartStore';
+
+export { default as OrderListStore } from './OrderListStore';
+
+export { default as OrderDetailStore } from './OrderDetailStore';

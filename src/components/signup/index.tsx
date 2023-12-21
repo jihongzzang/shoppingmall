@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 
 import styled from 'styled-components';
 
-import { Button, Card, CrossCircledIcon, Flex, Heading, Text } from '../ui';
+import {
+  Button, Card, CrossCircledIcon, Flex, Heading, Text,
+} from '../ui';
 
 import { TextBox } from '../ui/molecule';
 
@@ -54,7 +56,9 @@ export default function SignupForm() {
   const { setAccessToken } = useAccessToken();
 
   const [
-    { email, name, password, passwordConfirmation, valid, error, accessToken },
+    {
+      email, name, password, passwordConfirmation, valid, error, accessToken,
+    },
     store,
   ] = useSignupFormStore();
 
@@ -86,44 +90,44 @@ export default function SignupForm() {
   };
 
   return (
-    <Container direction='column'>
-      <Heading as='h2' variant='heading_03'>
+    <Container direction="column">
+      <Heading as="h2" variant="heading_03">
         회원 가입
       </Heading>
 
       <FormWrraper>
         <form onSubmit={handleSubmit}>
           <TextBox
-            label='이메일'
-            placeholder='tester@example.com'
+            label="이메일"
+            placeholder="tester@example.com"
             value={email}
             onChange={handleChangeEmail}
           />
 
-          <TextBox label='이름' value={name} onChange={handleChangeName} />
+          <TextBox label="이름" value={name} onChange={handleChangeName} />
 
           <TextBox
-            label='비밀번호'
-            type='password'
+            label="비밀번호"
+            type="password"
             value={password}
             onChange={handleChangePassword}
           />
 
           <TextBox
-            label='비밀번호 확인'
-            type='password'
+            label="비밀번호 확인"
+            type="password"
             value={passwordConfirmation}
             onChange={handleChangePasswordConfirmation}
           />
 
-          <Button type='submit' disabled={!valid}>
+          <Button type="submit" disabled={!valid}>
             회원 가입
           </Button>
 
           {error && (
-            <Flex className='errorMessagesWrraper' align='center' gap='1'>
-              <CrossCircledIcon color='red' width='2rem' height='2rem' />
-              <Text as='p' variant='body_02' color='red10'>
+            <Flex className="errorMessagesWrraper" align="center" gap="1">
+              <CrossCircledIcon color="red" width="2rem" height="2rem" />
+              <Text as="p" variant="body_02" color="red10">
                 회원 가입에 실패했습니다.
               </Text>
             </Flex>

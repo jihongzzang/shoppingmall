@@ -1,7 +1,9 @@
 Feature('Cart');
 
-Before(({ backdoor }) => {
+Before(({ backdoor, I }) => {
   backdoor.setupDatabase();
+
+  I.login();
 });
 
 Scenario('Empty cart', ({ I }) => {

@@ -15,6 +15,21 @@ export default class LoginFormStore {
 
   accessToken = '';
 
+  async login() {
+    try {
+      const accessToken = await apiService.login({
+        email: this.email,
+        password: this.password,
+      });
+
+      if (accessToken) {
+        this.setAccessToken(accessToken);
+      }
+    } catch (error) {
+      this.setError();
+    }
+  }
+
   get valid() {
     return this.email.includes('@') && !!this.password;
   }
@@ -45,20 +60,5 @@ export default class LoginFormStore {
     this.password = '';
     this.error = false;
     this.accessToken = '';
-  }
-
-  async login() {
-    try {
-      const accessToken = await apiService.login({
-        email: this.email,
-        password: this.password,
-      });
-
-      if (accessToken) {
-        this.setAccessToken(accessToken);
-      }
-    } catch (error) {
-      this.setError();
-    }
   }
 }

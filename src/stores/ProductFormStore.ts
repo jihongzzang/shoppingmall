@@ -32,6 +32,10 @@ export default class ProductFormStore {
     this.complete();
   }
 
+  get price() {
+    return this.product.price * this.quantity;
+  }
+
   @Action()
   setProduct(product: ProductDetail) {
     this.product = product;
@@ -74,9 +78,5 @@ export default class ProductFormStore {
         ? item
         : option.items.find((i) => i.id === optionItemId) ?? option.items[0];
     });
-  }
-
-  get price() {
-    return this.product.price * this.quantity;
   }
 }

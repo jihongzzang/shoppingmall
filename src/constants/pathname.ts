@@ -1,10 +1,11 @@
 const PATHNAME = {
   HOME: '/',
-  PRODUCTS: '/products',
-  CART: '/cart',
   LOGIN: '/login',
   SIGNUP: '/signup',
   SIGNUP_COMPLETE: '/signup/complete',
+  PRODUCTS: '/products',
+  CART: '/cart',
+  ORDERS: '/orders',
 };
 
 export default PATHNAME;

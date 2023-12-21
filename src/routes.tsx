@@ -3,11 +3,13 @@ import Layout from './components/Layout';
 import {
   HomePage,
   LoginPage,
+  SignupPage,
+  SignupCompletePage,
   ProductListPage,
   ProductDetailPage,
   CartPage,
-  SignupPage,
-  SignupCompletePage,
+  OrderListPage,
+  OrderDetailPage,
 } from './pages';
 
 import PATHNAME from './constants/pathname';
@@ -23,6 +25,8 @@ const routes = [
       { path: PATHNAME.PRODUCTS, element: <ProductListPage /> },
       { path: `${PATHNAME.PRODUCTS}/:id`, element: <ProductDetailPage /> },
       { path: PATHNAME.CART, element: <CartPage /> },
+      { path: PATHNAME.ORDERS, element: <OrderListPage /> },
+      { path: `${PATHNAME.ORDERS}/:id`, element: <OrderDetailPage /> },
     ],
   },
 ];

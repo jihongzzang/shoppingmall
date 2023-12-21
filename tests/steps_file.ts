@@ -1,14 +1,14 @@
 const { I } = inject();
 
 export = () => actor({
-  async login() {
+  login() {
     I.amOnPage('/');
 
     I.click('로그인');
 
-    I.fillField('E-mail', 'tester@example.com');
+    I.fillField('이메일', 'tester@example.com');
 
-    I.fillField('Password', 'password');
+    I.fillField('비밀번호', 'password');
 
     I.click('로그인', { css: 'form' });
 
