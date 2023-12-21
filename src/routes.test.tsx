@@ -133,6 +133,8 @@ describe('routes', () => {
       it('renders "Error!" message', async () => {
         renderRouter(`${PATHNAME.PRODUCTS}/xxx`);
 
+        screen.getByText(/Loading/);
+
         await waitFor(() => {
           screen.getByText(/Error!/);
         });
@@ -164,7 +166,7 @@ describe('routes', () => {
 
   context(`when the current path is '${PATHNAME.ORDERS}/:id`, () => {
     context('with correct ID', () => {
-      it('renders the product detail page', async () => {
+      it('renders the order detail page', async () => {
         renderRouter(`${PATHNAME.ORDERS}/${fixtures.order.id}`);
 
         screen.getByText(/Loading/);
@@ -178,6 +180,8 @@ describe('routes', () => {
     context('with incorrect ID', () => {
       it('renders "Error!" message', async () => {
         renderRouter(`${PATHNAME.ORDERS}/xxx`);
+
+        screen.getByText(/Loading/);
 
         await waitFor(() => {
           screen.getByText(/Error!/);
