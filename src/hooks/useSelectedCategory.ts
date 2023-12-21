@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
 import PATHNAME from '../constants/pathname';
+
 import CATEGORY_IDS from '../constants/categoryId';
 
 export default function useSelectedCategory() {

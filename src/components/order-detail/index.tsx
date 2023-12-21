@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
+import Table from '../line-item/Table';
+
 import { OrderDetail } from '../../types';
 
-import Table from '../line-item/Table';
+import STATUS_MESSAGES from '../../constants/statusMessages';
 
 const Container = styled.div`
   dl {
@@ -29,7 +31,7 @@ export default function Order({ order }: OrderProps) {
     return null;
   }
 
-  const { orderedAt, id } = order;
+  const { orderedAt, id, status } = order;
 
   return (
     <Container>
@@ -38,6 +40,8 @@ export default function Order({ order }: OrderProps) {
         <dd>{orderedAt}</dd>
         <dt>주문 코드</dt>
         <dd>{id}</dd>
+        <dt>처리상태</dt>
+        <dd>{STATUS_MESSAGES[status]}</dd>
       </dl>
       <Table lineItems={order.lineItems} totalPrice={order.totalPrice} />
     </Container>
