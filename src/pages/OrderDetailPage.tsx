@@ -13,8 +13,6 @@ export default function OrderDetailPage() {
     orderId: String(params.id),
   });
 
-  console.log(order);
-
   if (loading) {
     return (
       <Text as='p' variant='body_02'>

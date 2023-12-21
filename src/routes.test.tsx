@@ -130,11 +130,11 @@ describe('routes', () => {
     });
 
     context('with incorrect ID', () => {
-      it('renders "not found" message', async () => {
+      it('renders "Error!" message', async () => {
         renderRouter(`${PATHNAME.PRODUCTS}/xxx`);
 
         await waitFor(() => {
-          screen.getByText(/Error/);
+          screen.getByText(/Error!/);
         });
       });
     });
@@ -158,6 +158,30 @@ describe('routes', () => {
 
       await waitFor(() => {
         screen.getAllByText(/결제 금액/);
+      });
+    });
+  });
+
+  context(`when the current path is '${PATHNAME.ORDERS}/:id`, () => {
+    context('with correct ID', () => {
+      it('renders the product detail page', async () => {
+        renderRouter(`${PATHNAME.ORDERS}/${fixtures.order.id}`);
+
+        screen.getByText(/Loading/);
+
+        await waitFor(() => {
+          screen.getByText(new RegExp(fixtures.order.id));
+        });
+      });
+    });
+
+    context('with incorrect ID', () => {
+      it('renders "Error!" message', async () => {
+        renderRouter(`${PATHNAME.ORDERS}/xxx`);
+
+        await waitFor(() => {
+          screen.getByText(/Error!/);
+        });
       });
     });
   });

@@ -11,8 +11,6 @@ export default function useFetchOrder({ orderId }: { orderId: string }) {
 
   const [{ order, loading, error }] = useStore(store);
 
-  console.log(store);
-
   useEffect(() => {
     store.fetchOrder({ orderId });
   }, [store]);
