@@ -17,7 +17,7 @@ Scenario('Add to cart', ({ I }) => {
 
   I.click('CBCL 하트자수맨투맨');
 
-  I.click('[role="combobox"]');
+  I.click('[role="combobox"]:nth-of-type(1)');
 
   I.click('blue');
 
