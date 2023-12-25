@@ -20,7 +20,7 @@ export default function OrderForm({ cart }: OrderFormProps) {
       </Heading>
       <Table lineItems={lineItems} totalPrice={totalPrice} />
       <ShippingForm />
-      <Button size='4'>주문하기</Button>
+      <Button size='4'>결제</Button>
     </Flex>
   );
 }
