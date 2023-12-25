@@ -9,7 +9,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 function main() {
+  Reflect.get(window, 'IMP').init(process.env.REACT_APP_PORTONE_IMP);
+
   const container = document.getElementById('root');
+
   if (!container) {
     return;
   }
@@ -18,7 +21,7 @@ function main() {
   root.render(
     <React.StrictMode>
       <App />
-    </React.StrictMode>,
+    </React.StrictMode>
   );
 }
 

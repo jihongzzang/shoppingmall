@@ -1,8 +1,10 @@
-import { Heading, Flex, Button } from '../ui';
+import { Heading, Flex } from '../ui';
 
 import Table from '../line-item/Table';
 
 import ShippingForm from './ShippingForm';
+
+import PaymentButton from './PaymentButton';
 
 import { Cart } from '../../types';
 
@@ -20,7 +22,7 @@ export default function OrderForm({ cart }: OrderFormProps) {
       </Heading>
       <Table lineItems={lineItems} totalPrice={totalPrice} />
       <ShippingForm />
-      <Button size='4'>결제</Button>
+      <PaymentButton cart={cart} />
     </Flex>
   );
 }

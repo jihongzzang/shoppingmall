@@ -9,7 +9,8 @@ import {
   ProductSummary,
 } from '../types';
 
-const API_BASE_URL = process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-03.fly.dev';
+const API_BASE_URL =
+  process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-03.fly.dev';
 
 export default class ApiService {
   private instance = axios.create({
@@ -149,6 +150,25 @@ export default class ApiService {
     const { data } = await this.instance.get(`/orders/${orderId}`);
 
     return data;
+  }
+
+  async createOrder({
+    receiver,
+    payment,
+  }: {
+    receiver: {
+      name: string;
+      address1: string;
+      address2: string;
+      postalCode: string;
+      phoneNumber: string;
+    };
+    payment: {
+      merchantId: string;
+      transactionId: string;
+    };
+  }): Promise<void> {
+    await this.instance.post('/orders', { receiver, payment });
   }
 }
 
