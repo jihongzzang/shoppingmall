@@ -2,11 +2,7 @@ import styled from 'styled-components';
 
 import { Button as RadixButton } from '@radix-ui/themes';
 
-type ButtonProps = {
-  type?: 'button' | 'submit' | 'reset';
-};
-
-const Button = styled(RadixButton).attrs<ButtonProps>(({ type }) => ({
+const Button = styled(RadixButton).attrs(({ type }) => ({
   type: type ?? 'button',
 }))`
   cursor: pointer;

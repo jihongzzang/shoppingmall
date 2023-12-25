@@ -1,7 +1,10 @@
-import { Heading, Flex } from '../ui';
+import { Heading, Flex, Button } from '../ui';
+
+import Table from '../line-item/Table';
+
+import ShippingForm from './ShippingForm';
 
 import { Cart } from '../../types';
-import Table from '../line-item/Table';
 
 type OrderFormProps = {
   cart: Cart;
@@ -16,6 +19,8 @@ export default function OrderForm({ cart }: OrderFormProps) {
         주문
       </Heading>
       <Table lineItems={lineItems} totalPrice={totalPrice} />
+      <ShippingForm />
+      <Button size='4'>주문하기</Button>
     </Flex>
   );
 }

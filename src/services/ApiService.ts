@@ -9,8 +9,7 @@ import {
   ProductSummary,
 } from '../types';
 
-const API_BASE_URL =
-  process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-03.fly.dev';
+const API_BASE_URL = process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-03.fly.dev';
 
 export default class ApiService {
   private instance = axios.create({

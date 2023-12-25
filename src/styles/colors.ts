@@ -1,6 +1,4 @@
-import {
-  gray, blue, red, green, blackA,
-} from '@radix-ui/colors';
+import { gray, blue, red, green, blackA } from '@radix-ui/colors';
 
 const colors = {
   white: '#FFFFFF',

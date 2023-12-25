@@ -189,4 +189,24 @@ describe('routes', () => {
       });
     });
   });
+
+  context(`when the current path is '${PATHNAME.ORDER}`, () => {
+    it('renders the order page', async () => {
+      renderRouter(`${PATHNAME.ORDER}`);
+
+      await waitFor(() => {
+        screen.getAllByText(/주문/);
+      });
+    });
+  });
+
+  context(`when the current path is '${PATHNAME.ORDER_COMPLETE}`, () => {
+    it('renders the order complete page', async () => {
+      renderRouter(`${PATHNAME.ORDER_COMPLETE}`);
+
+      await waitFor(() => {
+        screen.getAllByText(/주문 완료/);
+      });
+    });
+  });
 });

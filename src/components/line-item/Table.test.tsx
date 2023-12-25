@@ -17,7 +17,7 @@ describe('LineItems', () => {
 
     it('renders nothing', () => {
       const { container } = render(
-        <Table lineItems={lineItems} totalPrice={totalPrice} />
+        <Table lineItems={lineItems} totalPrice={totalPrice} />,
       );
 
       const lineItemTable = container.querySelector('table');
@@ -31,7 +31,7 @@ describe('LineItems', () => {
 
     it('renders lineItems table', () => {
       const { container } = render(
-        <Table lineItems={lineItems} totalPrice={totalPrice} />
+        <Table lineItems={lineItems} totalPrice={totalPrice} />,
       );
 
       expect(container).toHaveTextContent(numberFormat(totalPrice));

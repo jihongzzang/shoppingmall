@@ -32,4 +32,6 @@ describe('CartView', () => {
       screen.getByText(productName);
     });
   });
+
+  // TO DO handleClickFunc (주문하기)
 });

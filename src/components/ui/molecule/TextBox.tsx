@@ -22,9 +22,11 @@ type TextBoxProps = {
   direction?: Responsive<'row' | 'column' | 'row-reverse' | 'column-reverse'>;
   label: string;
   placeholder?: string;
-  type?: 'text' | 'number' | 'password'; // write avaliable type
+  type?: 'text' | 'number' | 'password' | 'tel'; // write avaliable type
   value: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
+  readOnly?: boolean;
+  size?: Responsive<'1' | '2' | '3'>;
 };
 
 export default function TextBox({
@@ -33,23 +35,27 @@ export default function TextBox({
   placeholder = undefined,
   type = 'text',
   value,
-  onChange,
+  onChange = undefined,
+  readOnly = false,
+  size = '2',
 }: TextBoxProps) {
   const id = useRef(`textbox-${Math.random().toString().slice(2)}`);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+    onChange?.(e.target.value);
   };
 
   return (
     <Container direction={direction}>
       <LabelRoot htmlFor={id.current}>{label}</LabelRoot>
       <TextField.Input
+        size={size}
         id={id.current}
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
+        readOnly={readOnly}
       />
     </Container>
   );

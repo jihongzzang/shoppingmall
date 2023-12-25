@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-import { Link } from '@radix-ui/themes';
-import { CheckCircledIcon, Flex, Heading, Text } from '../components/ui';
+import {
+  CheckCircledIcon, Flex, Heading, Link, Text,
+} from '../components/ui';
 
 import PATHNAME from '../constants/pathname';
 
@@ -18,19 +19,20 @@ const Container = styled(Flex)`
 
 export default function OrderCompletePage() {
   return (
-    <Container direction='column' justify='center'>
-      <Heading as='h2' variant='heading_03'>
+    <Container direction="column" justify="center">
+      <Heading as="h2" variant="heading_03">
         주문 완료
       </Heading>
 
-      <Flex gap='1' align='center'>
-        <CheckCircledIcon color='green' width='2.4rem' height='2.4rem' />
-        <Text as='p' variant='body_03'>
+      <Flex gap="1" align="center">
+        <CheckCircledIcon color="green" width="2.4rem" height="2.4rem" />
+        <Text as="p" variant="body_03">
           주문이 완료되었습니다.
         </Text>
       </Flex>
-
-      <Link to={PATHNAME.ORDERS}>주문 목록 확인</Link>
+      <Text as="p" variant="body_03">
+        <Link to={PATHNAME.ORDERS}>주문 목록 확인</Link>
+      </Text>
     </Container>
   );
 }

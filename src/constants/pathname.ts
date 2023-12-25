@@ -6,6 +6,7 @@ const PATHNAME = {
   PRODUCTS: '/products',
   CART: '/cart',
   ORDER: '/order',
+  ORDER_COMPLETE: '/order/complete',
   ORDERS: '/orders',
 };
 

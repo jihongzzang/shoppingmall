@@ -1,7 +1,6 @@
 const { I } = inject();
 
-const BACKDOOR_BASE_URL =
-  process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-03.fly.dev';
+const BACKDOOR_BASE_URL = process.env.REACT_APP_BASE_API_URL || 'https://shop-demo-api-03.fly.dev';
 
 export = {
   setupDatabase() {
