@@ -6,6 +6,8 @@ import { OrderSummary } from '../../types';
 
 import { Link } from '../ui';
 
+import PATHNAME from '../../constants/pathname';
+
 const Container = styled.div`
   li {
     margin-block: 0.5rem;
@@ -32,7 +34,7 @@ export default function Orders({ orders }: OrdersProps) {
       <ul>
         {orders.map((order) => (
           <li key={order.id}>
-            <Link to={`/orders/${order.id}`}>
+            <Link to={`${PATHNAME.ORDERS}/${order.id}`}>
               <Order order={order} />
             </Link>
           </li>

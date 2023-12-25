@@ -2,15 +2,15 @@ import { useEffect } from 'react';
 
 import styled from 'styled-components';
 
-import {
-  Button, Card, Flex, Heading, Link, Text,
-} from '../ui';
+import { Button, Card, Flex, Heading, Link, Text } from '../ui';
 
 import { TextBox } from '../ui/molecule';
 
 import useAccessToken from '../../hooks/useAccessToken';
 
 import useLoginFormStore from '../../hooks/useLoginFormStore';
+
+import PATHNAME from '../../constants/pathname';
 
 const Container = styled(Flex)`
   margin-inline: auto;
@@ -64,9 +64,8 @@ const FormWrraper = styled(Card)`
 export default function LoginForm() {
   const { setAccessToken } = useAccessToken();
 
-  const [{
-    email, password, valid, error, accessToken,
-  }, store] = useLoginFormStore();
+  const [{ email, password, valid, error, accessToken }, store] =
+    useLoginFormStore();
 
   useEffect(() => {
     if (accessToken) {
@@ -88,33 +87,33 @@ export default function LoginForm() {
   };
 
   return (
-    <Container direction="column" gap="4">
-      <Heading as="h2" variant="heading_03">
+    <Container direction='column' gap='4'>
+      <Heading as='h2' variant='heading_03'>
         로그인
       </Heading>
       <FormWrraper>
         <form onSubmit={handleSubmit}>
           <TextBox
-            label="이메일"
-            placeholder="tester@example.com"
+            label='이메일'
+            placeholder='tester@example.com'
             value={email}
             onChange={handleChangeEmail}
           />
           <TextBox
-            label="비밀번호"
-            type="password"
+            label='비밀번호'
+            type='password'
             value={password}
             onChange={handleChangePassword}
           />
-          <SignInSignUpWrapper align="center" gap="4">
-            <Button type="submit" disabled={!valid}>
+          <SignInSignUpWrapper align='center' gap='4'>
+            <Button type='submit' disabled={!valid}>
               로그인
             </Button>
-            <RegisterLink to="/signup">회원 가입</RegisterLink>
+            <RegisterLink to={PATHNAME.SIGNUP}>회원 가입</RegisterLink>
           </SignInSignUpWrapper>
 
           {error && (
-            <Text as="p" variant="body_02">
+            <Text as='p' variant='body_02'>
               로그인 실패
             </Text>
           )}

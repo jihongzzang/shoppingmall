@@ -5,6 +5,7 @@ const PATHNAME = {
   SIGNUP_COMPLETE: '/signup/complete',
   PRODUCTS: '/products',
   CART: '/cart',
+  ORDER: '/order',
   ORDERS: '/orders',
 };
 

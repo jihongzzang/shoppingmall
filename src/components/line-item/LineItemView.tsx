@@ -8,6 +8,8 @@ import { LineItem } from '../../types';
 
 import { numberFormat } from '../../utils';
 
+import PATHNAME from '../../constants/pathname';
+
 type LineItemViewProps = {
   lineItem: LineItem;
 };
@@ -18,7 +20,7 @@ export default function LineItemView({ lineItem }: LineItemViewProps) {
   return (
     <Table.Row>
       <Table.Cell>
-        <Link to={`/products/${lineItem.product.id}`}>
+        <Link to={`${PATHNAME.PRODUCTS}/${lineItem.product.id}`}>
           {lineItem.product.name}
         </Link>
         <Options options={lineItem.options} />

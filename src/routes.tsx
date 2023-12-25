@@ -10,6 +10,7 @@ import {
   CartPage,
   OrderListPage,
   OrderDetailPage,
+  OrderPage,
 } from './pages';
 
 import PATHNAME from './constants/pathname';
@@ -27,6 +28,7 @@ const routes = [
       { path: PATHNAME.CART, element: <CartPage /> },
       { path: PATHNAME.ORDERS, element: <OrderListPage /> },
       { path: `${PATHNAME.ORDERS}/:id`, element: <OrderDetailPage /> },
+      { path: `${PATHNAME.ORDER}/:id`, element: <OrderPage /> },
     ],
   },
 ];
